@@ -1,0 +1,15 @@
+<div ng-include="'dist/views/user-notes-form.html'"></div>
+
+<p ng-if="mainVm.selectedUser.notes.length === 0">{{mainVm.selectedUser.name}} has no notes.</p>
+<md-content ng-if="mainVm.selectedUser.notes">
+    <md-card ng-repeat="note in mainVm.selectedUser.notes">
+        <md-card-content>
+            <h3>{{note.title}}</h3>
+
+            <p>{{note.date | date:'MM/dd/yyyy'}}</p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="mainVm.removeCard(note)">Remove</md-button>
+        </md-card-actions>
+    </md-card>
+</md-content>

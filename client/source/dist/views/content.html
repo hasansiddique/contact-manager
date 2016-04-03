@@ -1,0 +1,12 @@
+<h1>{{mainVm.selectedUser.name}}</h1>
+
+<md-tabs md-dynamic-height
+         md-stretch-tabs="always"
+         md-selected="mainVm.tabIndex">
+    <md-tab label="Bio">
+        <div ng-include="'dist/views/user-bio.html'"></div>
+    </md-tab>
+    <md-tab label="Notes">
+        <div ng-include="'dist/views/user-notes.html'"></div>
+    </md-tab>
+</md-tabs>

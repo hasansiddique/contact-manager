@@ -1,0 +1,8 @@
+html, body {
+    font-family: 'Alegreya Sans', sans-serif;
+    color: #323232;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

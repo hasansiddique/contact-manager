@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactManagerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="lib/bower/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="lib/bower/angular-material-icons/angular-material-icons.css">
+    <link rel="stylesheet" href="dist/app.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+    <title>Contact Manager App</title>
+</head>
+<body layout="row" ng-cloak ng-controller="MainController as mainVm">
+
+<div layout="row" flex ng-include="'dist/views/main.html'"></div>
+<!-- DEPENDENCIES -->
+<script src="lib/bower/angular/angular.js"></script>
+<script src="lib/bower/angular-animate/angular-animate.js"></script>
+<script src="lib/bower/angular-aria/angular-aria.js"></script>
+<script src="lib/bower/angular-material/angular-material.js"></script>
+<script src="lib/bower/angular-messages/angular-messages.js"></script>
+<script src="lib/bower/angular-material-icons/angular-material-icons.js"></script>
+
+<!-- ANGULAR CONTROLLERS -->
+<script src="dist/controllers/main.js"></script>
+<script src="dist/controllers/newUser.js"></script>
+<script src="dist/controllers/contactController.js"></script>
+
+<!-- ANGULAR SERVICES -->
+<script src="dist/services/userService.js"></script>
+
+<!-- ANGULAR MODELS -->
+<script src="dist/models.js"></script>
+
+<!-- BOOT.TS -->
+<script src="dist/boot.js"></script>
+
+</body>
+</html>

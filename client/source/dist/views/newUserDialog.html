@@ -1,0 +1,62 @@
+<md-dialog>
+    <form name="userForm" ng-submit="newUserVm.save()">
+        <md-dialog-content>
+            <div layout="column" layout-padding>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label for="avatar">Avatar</label>
+                        <md-select ng-model="newUserVm.user.avatar" name="avatar" id="avatar" required>
+                            <md-option ng-repeat="avatar in newUserVm.avatars" ng-value="avatar">
+                                <md-icon md-svg-icon="{{ avatar }}"></md-icon>
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="userFrom.avatar.$error">
+                            <div ng-message="required">
+                                Avatar is required.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label for="firstName">First Name</label>
+                        <input type="text" ng-model="newUserVm.user.firstName" name="firstName" id="firstName"
+                               required/>
+
+                        <div ng-messages="userFrom.firstName.$error">
+                            <div ng-message="required">
+                                First Name is required.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" ng-model="newUserVm.user.lastName" name="lastName" id="lastName" required/>
+
+                        <div ng-messages="userFrom.lastName.$error">
+                            <div ng-message="required">
+                                Last Name is required.
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <md-input-container>
+                    <label for="biography">Biography</label>
+                    <textarea name="biography" id="biography" cols="30" rows="10" required></textarea>
+
+                    <div ng-messages="userFrom.biography.$error">
+                        <div ng-message="required">
+                            Biography is required.
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="newUserVm.cancel()">
+                Cancel
+            </md-button>
+            <md-button type="submit" class="md-primary md-raised" ng-disabled="userForm.$invalid">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

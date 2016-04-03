@@ -1,0 +1,44 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-sm')">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Contacts</h1>
+    </md-toolbar>
+
+    <div layout-padding>
+        <md-autocomplete
+                md-search-text="mainVm.searchText"
+                md-items="item in mainVm.users | filter:mainVm.searchText"
+                md-item-text="item.name"
+                md-min-length="1"
+                placeholder="filter contacts">
+            <md-item-template>
+                <span md-highlight-text="mainVm.searchText" md-highlight-flags="^i">
+                    {{item.name}}
+                </span>
+            </md-item-template>
+            <md-not-found>
+                No user with '<b>{{mainVm.searchText}}</b>' is found.
+            </md-not-found>
+        </md-autocomplete>
+    </div>
+
+    <md-content class="scrollable-nav-content">
+        <md-list>
+            <md-list-item ng-repeat="user in mainVm.users | filter: mainVm.searchText | orderBy: 'name'">
+                <md-button ng-click="mainVm.selectUser(user)"
+                           ng-class="{'selected' : user === mainVm.selectedUser}">
+                    <md-icon md-svg-icon="avatar" class="avatar"></md-icon>
+                    {{user.name}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    <md-button aria-label="user" class="md-fab md-mini md-fab-bottom-right md-primary"
+               ng-click="mainVm.addNewUser($event)" title="Add new user">
+        <md-icon md-svg-icon="add_user"></md-icon>
+        <md-tooltip md-direction="right">Add New User</md-tooltip>
+    </md-button>
+
+</md-sidenav>
